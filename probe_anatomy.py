@@ -116,7 +116,7 @@ for idx, rec in recordings_split.items():
 
     if offset_detection == "manual":
 
-        state = interactive_probe_alignment(
+        offset = interactive_probe_alignment(
             tracks=tracks,
             channel_locs=channel_locs,
             power_per_channel=shanks[idx]["power_per_channel"],  # or None
@@ -125,7 +125,7 @@ for idx, rec in recordings_split.items():
             step_um=25.0,
             title=f"Shank {idx}: Alignment"
         )
-        shanks[idx]["probe_offset_um"] = state["offset"]  # Check is um
+        shanks[idx]["probe_offset_um"] = offset  # Check is um
     else:
         raise NotImplementedError()
 
